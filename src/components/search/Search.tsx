@@ -13,6 +13,7 @@ export const Search = () => {
   useEffect(() => {
     const asyncFn = async () => {
       const data = await executeSearch(inputValue);
+      console.log("data", data);
     };
     asyncFn();
   }, [debounceValue]);
