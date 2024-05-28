@@ -13,7 +13,6 @@ export const Search = () => {
   useEffect(() => {
     const asyncFn = async () => {
       const data = await executeSearch(inputValue);
-      console.log("data", data);
     };
     asyncFn();
   }, [debounceValue]);
@@ -26,5 +25,10 @@ export const Search = () => {
       clearTimeout(timer);
     };
   }, [inputValue]);
-  return <input value={inputValue} onChange={handleChange} />;
+  return (
+    <label>
+      Search for a Rick and Morty Character
+      <input value={inputValue} onChange={handleChange} />
+    </label>
+  );
 };
