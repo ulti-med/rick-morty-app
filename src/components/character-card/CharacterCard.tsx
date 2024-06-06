@@ -1,29 +1,35 @@
-import React from "react";
+import { Link } from "react-router-dom";
+import { Gender, Status } from "../../types/character";
 
-type Gender = "Female" | "Male" | "Genderless" | "unknown";
-
-interface IProps {
+export interface IProps {
+  id: number;
   image: string;
   name: string;
   gender: Gender;
-  status: "Alive" | "Dead" | "unknown";
+  status: Status;
 }
 const getGenderEmoji = (gender: Gender) => {
-  if (gender === "Female") return "😀";
-  if (gender === "Male") return "M";
-  if (gender === "Genderless") return "G";
-  return "U";
+  if (gender === "Female") return "💅";
+  if (gender === "Male") return "👊";
+  if (gender === "Genderless") return "👽";
+  return "🧩";
 };
 
-export const CharacterCard = ({ image, name, gender, status }: IProps) => {
+const getStatusColor = (status: Status) => {
+  if (status === "Alive") return "green";
+  if (status === "Dead") return "yellow";
+  return "red";
+};
+
+export const CharacterCard = ({ id, image, name, gender, status }: IProps) => {
   return (
-    <div>
+    <Link to={`/character/${id}`}>
       <img src={image} alt="" />
       <h2>{name}</h2>
       <div>
-        <span>Gender:</span>
-        <span>{getGenderEmoji(gender)}</span>
+        <span>Gender: {getGenderEmoji(gender)}</span>
       </div>
-    </div>
+      <div>Status: {getStatusColor(status)} </div>
+    </Link>
   );
 };

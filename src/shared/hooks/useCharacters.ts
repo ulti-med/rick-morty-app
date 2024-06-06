@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { executeSearch } from "../../api/executeSearch";
+import { ICharacterList } from "../../types/character";
 
 export const useCharacters = (search: string) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState({});
+  const [data, setData] = useState<ICharacterList | undefined>(undefined);
 
   useEffect(() => {
     const asyncFn = async () => {

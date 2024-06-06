@@ -1,6 +1,12 @@
+import { ChangeEventHandler } from "react";
 import "./Search.css";
 
-export const Search = ({ inputValue, onChange }) => {
+interface SearchProps {
+  inputValue: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+}
+
+export const Search = ({ inputValue, onChange }: SearchProps) => {
   return (
     <label>
       Search for a Rick and Morty Character
