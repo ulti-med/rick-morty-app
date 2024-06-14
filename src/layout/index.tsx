@@ -4,7 +4,7 @@ import { Header } from "./header/Header";
 
 export const Layout = () => {
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div style={{ width: "100vw" }}>
       <Header />
       <div>
         <Outlet />

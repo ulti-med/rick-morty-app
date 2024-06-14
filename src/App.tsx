@@ -3,6 +3,7 @@ import "./App.css";
 import { Characters } from "./pages/characters/Characters";
 import { Layout } from "./layout";
 import { CharacterPage } from "./pages/character-page/CharacterPage";
+import { NotFound } from "./pages/not-found-page/NotFound";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Characters />} />
           <Route path="/character/:characterId" element={<CharacterPage />} />
-          {/* <Route path="*" element={<NotFound />} /> */}
+          <Route path="/error" element={<NotFound />} />
         </Route>
       </Routes>
     </>
